@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 groupNames.forEach((input) => {
                     if (!input.value.trim()) {
                         showError(input)
+                        isValid = false
                     } else {
                         hideError(input)
                     }

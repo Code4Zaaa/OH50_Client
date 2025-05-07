@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
 
+    function index(){
+        if (session()->has('nama') && session()->has('pass')) {
+            return redirect(url('logging'));
+        }
+
+        return view('masuk');
+    }
+
     function login(Request $request){
         $request->validate([
             "nama"=>"required",
@@ -38,7 +46,6 @@ class ClientController extends Controller
     
         return back()->with("success", "Data Berhasil Disimpan");
     }
-
     function logging(){
         $Kamis = Client::whereDate('created_at', '=', '2025-05-08')->count();
         $Jumat = Client::whereDate('created_at', '=', '2025-05-09')->count();
