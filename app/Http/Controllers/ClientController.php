@@ -49,7 +49,7 @@ class ClientController extends Controller
     function logging(){
         $Kamis = Client::whereDate('created_at', '=', '2025-05-08')->count();
         $Jumat = Client::whereDate('created_at', '=', '2025-05-09')->count();
-        $Sabtu = Client::whereDate('created_at', '=', '2025-04-010')->count();
+        $Sabtu = Client::whereDate('created_at', '=', '2025-04-10')->count();
         $Total = Client::count();
         return view('logging', compact('Kamis','Jumat', 'Sabtu', 'Total'));
     }
